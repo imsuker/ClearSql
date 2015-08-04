@@ -1,1 +1,33 @@
-Hello word!
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+<style>
+    body{font-size:12px;}
+    .content{ width: 100%; margin: 0px auto;}
+    img{max-width:200px;}
+    textarea{width:50%;height:200px;}
+</style>
+</head>
+<body>
+  <p>sql语句优化，删除回车，多空格变1空格，中文逗号变英文逗号,双引号变单引号</p>
+  <textarea  id="sql" ></textarea>
+  <p><input type="button" id="run" value="转换" /></p>
+  <textarea id="result" ></textarea>
+  <script src="http://fed.pimg.cn/js/gallery/require-jquery.js?v=2015-04-09"></script>
+  <script>
+    $(function(){
+      $("#run").click(function(){
+        var sql = $("#sql").val();
+        var nsql = sql.replace(/\n/g,' ')
+          .replace(/\s+/g,' ')
+          .replace(/，/g,',')
+          .replace(/\"/g,"'");
+        $("#result").val(nsql);
+      });
+    });
+
+  </script>
+</body>
+</html>
